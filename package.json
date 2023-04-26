@@ -1,0 +1,35 @@
+{
+  "name": "webpack-ts-test",
+  "version": "1.0.0",
+  "description": "一个webpack+babel构建ts的测试",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cross-env ENV=development webpack-dev-server --mode=development",
+    "build": "cross-env ENV=production webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@types/dotenv-webpack": "^7.0.3",
+    "@types/node": "^18.16.1",
+    "@types/webpack": "^5.28.1",
+    "babel-loader": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "html-webpack-plugin": "^5.5.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2",
+    "webpack-dev-server": "^4.13.3",
+    "webpack-merge": "^5.8.0"
+  }
+}
