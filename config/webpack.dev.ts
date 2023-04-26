@@ -10,7 +10,7 @@ export default {
   devServer: {
     port: 9999,
     static: {
-      directory: resolve(__dirname, './public/index.html')
+      directory: resolve(__dirname, '../public/index.html')
     },
     hot: true,
     compress: true,
