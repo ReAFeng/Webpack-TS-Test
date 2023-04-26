@@ -1,45 +1,10 @@
-import { resolve } from "path";
 import { Configuration } from "webpack";
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
+import { merge } from 'webpack-merge';
+import common from "./config/webpack.common";
+import dev from "./config/webpack.dev";
+import prod from "./config/webpack.prod";
 
-export default {
-  entry: "./src/main.ts",
-  output: {
-    path: resolve(__dirname, "./dist"),
-    filename: 'static/js/app-[contenthash].js',
-    chunkFilename: 'static/js/chunk-[contenhash].js',
-    clean: true
-  },
-  devServer: {
-    port: 9999,
-    static: {
-      directory: resolve(__dirname, './public/index.html')
-    },
-    hot: true,
-    compress: true
-  },
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src/")
-    }
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(t|m?j)s$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: resolve(__dirname, './public/index.html'),
-      inject: 'body',
-    }),
-    new Dotenv({
-      path: resolve(__dirname, `.env.${process.env.ENV}`)
-    })
-  ]
-} as Configuration;
+export default (_env: any, args: Configuration) => {
+  const config = args.mode === "development" ? dev : prod;
+  return merge(common, config);
+}
