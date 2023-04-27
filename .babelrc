@@ -1,9 +1,23 @@
 {
-  "presets":[
+  "presets": [
     "@babel/preset-env",
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "@babel/transform-runtime"
+    "@babel/transform-runtime",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        // "version": "2023-01",
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-optional-chaining",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
   ]
 }
